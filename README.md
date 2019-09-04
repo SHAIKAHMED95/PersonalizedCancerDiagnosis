@@ -28,15 +28,26 @@ Context Source: https://www.kaggle.com/c/msk-redefining-cancer-treatment/discuss
 
 # Summary of the problem's solution
 
-  First of all we will download data from the source and load the data into pandas dataframe.
+ First of all we will download data from the source and load the data into pandas dataframe.
+
 Found that some special char, multiple space b/w words so used text preprocessing/data cleaning.
+
 Did EDA for better understanding of data and found that some insights out of it although It is medical data and for better understanding of data we need to have some good knowledge in molecular biology or to be more specific domain knowledge.
+
 Extracted some feature out of text data as well as from the others features(Gene, Variation) also and did some visualization to understand whether it has some value or not.
+
 checked for distribution of the class labels among train,test, and validation data.
+
 After this, built a random model and generated 9 class probability randomely such that they sum to 1 to ensure that whatever model we built on top of this the loss will be always less and got log-loss ~2.5 from this random model.
+
 Featurized categorical feature into numerical using onehotencoding and response coding and used both featurized vector to predict class label.
+
 built other models with each and every individual engineered feature and check for whether they will be helpful or not in prediction and found that they are helpful.
+
 On the text features, used bow and tfidf and choose top 3k features and then stacked all the features on top of each other.
+
 Now it's time to build model but before we built, first tuned the hyperparameter and then started with baseline model naive bays and obtained train loss ~ 0.9, test loss ~1.15 and validataion loss ~1.9.
+
 And then again tuned hyperparameter for nearest neighbor and got slightly better or same accurcy than naive bays.
+
 Tried naive bayes, nearest neighbor, logistic regression, linear SVM, random forest, stack 3 models(logistic regression, linear svm, naive bayes) and then used voting model and for each and every model did hyperparameter tuning, showed % of missclassified point, showed confusion matrix, precision, recall in a heatmap and the most important given interpretation(i.e. why the given gene and mutation comes under class 4 or whatever) for each model.
